@@ -1,19 +1,11 @@
-# Welcome to MkDocs
+# ¡Bienvenido!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+En este sitio se estará tocando todos los temas referente al **Análisis de datos** mediante `Python` y `SQL Server`.
 
-## Commands
+La metodología del aprendizaje se basará en:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* Teoría: La teoría será tan profunda como la necesaria, llegando hasta el tema fundamental para la compresión del capítulo actual.
+* Ejemplos: Los ejemplos puede tener un contexto (un caso que se puede dar en la vida real) o no, dependiendo del tema.
+* Flashcards (toggles): Para poder retener lo aprendido, se recomienda que se practique con los flashcards siguiendo el ritmo de *Active Recall*
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-I like drink :beers: after I like play :soccer:
+++ctrl+alt+del++
