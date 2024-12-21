@@ -1,0 +1,5 @@
+:root > * {
+    --md-code-hl-operator-color: #ff9200;
+    --md-code-hl-variable-color: cyan;
+    --md-code-hl-punctuation-color: #ff6200;
+  }
