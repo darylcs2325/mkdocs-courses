@@ -2,6 +2,8 @@ site_name: My Docs
 site_url: https://sitename.example
 theme:
   name: material
+  icon:
+    annotation: material/arrow-right-circle
   font:
     text: Roboto
     code: Red Hat Mono
@@ -14,6 +16,8 @@ theme:
     - content.code.select
     - navigation.footer
     - navigation.tabs
+    - content.tooltips
+    - content.code.annotate
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
@@ -34,9 +38,14 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  - abbr
+  - md_in_html
+  - tables
 extra:
   social:
     - icon: simple/linkedin
       name: squidfunk on Mastodon
       link: https://linkedin.com/in/darylics
 copyright: Copyright &copy; 2024 Daryl CS
+extra_css:
+  - stylesheets/extra.css
