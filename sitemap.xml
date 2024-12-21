@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://sitename.example/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/admonition/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/example/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/mermaid/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/tabs/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/Data%20Transformation/Reestructuraci%C3%B3n%20de%20Datos/</loc>
+         <lastmod>2024-12-21</lastmod>
+    </url>
+</urlset>
