@@ -168,4 +168,4 @@ Nuestas **tablas dimensiones** serán `Products` y `Customers`, este último est
     | 2         | 94         | 11        | 9/07/2025   | CHECKOUT    | Drop-off   | 169.25     | 1      |
     | 3         | 34         | 8         | 14/06/2024  | PRODUCTPAGE | View       | 235        | 1      |    
     | 4         | 33         | 18        | 28/05/2025  | CHECKOUT    | Drop-off   | 12         | 1      |
-    | 5         | 91         | 10        | 11/02/2023  | HOMEPAGE    | Click      | 156        | 1      |
+    | 5         | 91         | 10        | 11/02/2023  | HOMEPAGE    | Click      | 156        | 1      |fff
