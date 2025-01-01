@@ -36,11 +36,14 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
   - admonition
   - pymdownx.details
   - abbr
   - md_in_html
   - tables
+  - pymdownx.blocks.caption
 extra:
   social:
     - icon: simple/linkedin
@@ -49,3 +52,6 @@ extra:
 copyright: Copyright &copy; 2024 Daryl CS
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
