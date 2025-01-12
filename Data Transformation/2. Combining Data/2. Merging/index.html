@@ -1,0 +1,3593 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/Data%20Transformation/2.%20Combining%20Data/2.%20Merging/">
+      
+      
+        <link rel="prev" href="../1.%20Appending/">
+      
+      
+        <link rel="next" href="../../3.%20Custom%20Columns/1.%20Ranking/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>2. Merging - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sintaxis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Merging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  ¡Bienvenido!
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../admonition/" class="md-tabs__link">
+        
+  
+    
+  
+  Admonition
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../example/" class="md-tabs__link">
+        
+  
+    
+  
+  Example
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../mermaid/" class="md-tabs__link">
+        
+  
+    
+  
+  Mermaid
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tabs/" class="md-tabs__link">
+        
+  
+    
+  
+  Tabs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Data%20Modeling/Definicion%20de%20Tablas/" class="md-tabs__link">
+          
+  
+    
+  
+  Data Modeling
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../1.%20Reestructuraci%C3%B3n%20de%20Datos/1.%20Pivot/" class="md-tabs__link">
+          
+  
+    
+  
+  Data Transformation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../EDA/Importancia%20del%20EDA/1.%20Consideraciones/" class="md-tabs__link">
+          
+  
+    
+  
+  EDA
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/1.%20Riesgo%20y%20Rentabilidad/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducción a Gestión de Riesgo Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Proyectos/Marketing%20Analytics/Introducci%C3%B3n/" class="md-tabs__link">
+          
+  
+    
+  
+  Proyectos
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ¡Bienvenido!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../admonition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admonition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mermaid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mermaid
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tabs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tabs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Modeling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Data Modeling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Data%20Modeling/Definicion%20de%20Tablas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definicion de Tablas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Transformation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Data Transformation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1. Reestructuración de Datos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. Reestructuración de Datos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Reestructuraci%C3%B3n%20de%20Datos/1.%20Pivot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Pivot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Reestructuraci%C3%B3n%20de%20Datos/2.%20Unpivot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Unpivot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Reestructuraci%C3%B3n%20de%20Datos/3.%20GroupBy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. GroupBy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    2. Combining Data
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Combining Data
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Appending/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Appending
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Merging
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Merging
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sintáxis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    3. Custom Columns
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            3. Custom Columns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.%20Custom%20Columns/1.%20Ranking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Ranking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    EDA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            EDA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importancia del EDA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Importancia del EDA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Importancia%20del%20EDA/1.%20Consideraciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Consideraciones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Importancia%20del%20EDA/2.%20Creaci%C3%B3n%20de%20Features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Creación de Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Limpieza e Imputación de datos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Limpieza e Imputación de datos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Limpieza%20e%20Imputaci%C3%B3n%20de%20datos/1.%20Valores%20nulos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Valores nulos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Limpieza%20e%20Imputaci%C3%B3n%20de%20datos/2.%20Datos%20Categ%C3%B3ricos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Datos Categóricos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Limpieza%20e%20Imputaci%C3%B3n%20de%20datos/3.%20Datos%20Num%C3%A9ricos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Datos Numéricos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Limpieza%20e%20Imputaci%C3%B3n%20de%20datos/4.%20Valores%20at%C3%ADpicos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Valores atípicos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Limpieza%20e%20Imputaci%C3%B3n%20de%20datos/Valores%20nulos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valores nulos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Trabajando con Tiempo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Trabajando con Tiempo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Trabajando%20con%20Tiempo/1.%20Patr%C3%B3n%20a%20largo%20del%20tiempo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Patrón a largo del tiempo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Trabajando%20con%20Tiempo/2.%20Correlaci%C3%B3n/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Correlación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EDA/Trabajando%20con%20Tiempo/3.%20Relaci%C3%B3n%20y%20Distribuci%C3%B3n%20Datos%20Categ%C3%B3ricos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Relación y Distribución Datos Categóricos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introducción a Gestión de Riesgo Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción a Gestión de Riesgo Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/1.%20Riesgo%20y%20Rentabilidad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Riesgo y Rentabilidad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/2.%20Media.%20Varianza%20y%20Distribuci%C3%B3n%20Normal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Media. Varianza y Distribución Normal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/3.%20Skewness%20y%20Kurtosis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Skewness y Kurtosis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/4.%20Hip%C3%B3tesis%20para%20Distribuci%C3%B3n%20Normal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Hipótesis para Distribución Normal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_5" id="__nav_9_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cartera de Inversión
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cartera de Inversión
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/Cartera%20de%20Inversi%C3%B3n/1.%20Composici%C3%B3n%20de%20Cartera%20y%20Backtesting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Composición de Cartera y Backtesting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/Cartera%20de%20Inversi%C3%B3n/2.%20Correlaci%C3%B3n%20y%20covarianza/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Correlación y covarianza
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/Cartera%20de%20Inversi%C3%B3n/3.%20Portafolio%20Markowitz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Portafolio Markowitz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_6" id="__nav_9_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Inversión Factorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_6">
+            <span class="md-nav__icon md-icon"></span>
+            Inversión Factorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introducci%C3%B3n%20a%20Gesti%C3%B3n%20de%20Riesgo%20Python/Inversi%C3%B3n%20Factorial/1.%20CAPM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. CAPM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyectos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Proyectos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Marketing Analytics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Marketing Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Proyectos/Marketing%20Analytics/Introducci%C3%B3n/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1_2" id="__nav_10_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Etapa II   Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Etapa II   Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Proyectos/Marketing%20Analytics/Etapa%20II%20-%20Python/An%C3%A1lisis%20de%20Sentimiento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Análisis de Sentimiento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1_3" id="__nav_10_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Etapada 1. SQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Etapada 1. SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Proyectos/Marketing%20Analytics/Etapada%201.%20SQL/Limpieza/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Limpieza
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sintaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sintáxis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>2. Merging</h1>
+
+<p>Es el mismo principio del <code>JOIN</code> que se usa en <strong>SQL</strong>. Es la unión de dos dataframes o tablas a través de una columna clave, indicando el método que se utiliza (<code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>, etc).</p>
+<h2 id="sintaxis">Sintáxis<a class="headerlink" href="#sintaxis" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="sintaxis-pandas" name="__tabbed_1" type="radio" /><input id="sintaxis-polars" name="__tabbed_1" type="radio" /><input id="sintaxis-sql-server" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="sintaxis-pandas">Pandas</label><label for="sintaxis-polars">Polars</label><label for="sintaxis-sql-server">SQL Server</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">DataFrame</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#(1)!</span>
+</span></code></pre></div>
+<ol>
+<li>Es la unión de dos dataframes (<code>df1</code> y <code>df2</code>).<ul>
+<li><code>on=None</code>: Se utiliza cuando ambos dataframes comparten el mismo nombre de la columna clave.</li>
+<li><code>left_on=None, right_on=None</code>: Si ambos dataframes tienen nombres diferentes en la columna clave.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df1</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#(1)!</span>
+</span></code></pre></div>
+<ol>
+<li>Al igual que pandas, <code>on</code> se utiliza cuando comparten el mismo nombre de la columna clave, por defecto la unión es un <code>INNER JOIN</code>.<ul>
+<li><code>left_on=None, right_on=None</code>: Si ambos dataframes tienen nombres diferentes en la columna clave.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">col1</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">col2</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">col1</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">...</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="n">a</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">other_table</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">id_</span><span class="w"> </span><span class="c1">--(1)!</span>
+</span></code></pre></div>
+<ol>
+<li>
+<ul>
+<li><code>JOIN</code> puede ser <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, etc. </li>
+<li>Se indica mediante el <code>ON</code> cuales son las columnas claves con las que se hará la unión.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 id="ejemplos">Ejemplos<a class="headerlink" href="#ejemplos" title="Permanent link">&para;</a></h2>
+<p>Del resultado del capítulo anterior (Appeding) realizar un JOIN para saber los nombres de los empleados, además de a quienes le reportan (supervisor)</p>
+<div class="admonition example">
+<p class="admonition-title">Información extra de los trabajadores</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="ejemplos-pandas" name="__tabbed_2" type="radio" /><input id="ejemplos-polars" name="__tabbed_2" type="radio" /><input id="ejemplos-sql-server" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="ejemplos-pandas">Pandas</label><label for="ejemplos-polars">Polars</label><label for="ejemplos-sql-server">SQL Server</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">pd_sales_join</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="n">pd_sales</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="n">pd_employee</span><span class="p">[[</span><span class="s2">&quot;EmployeeID&quot;</span><span class="p">,</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;ReportsTo&quot;</span><span class="p">]],</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">on</span><span class="o">=</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="p">)</span> <span class="c1">#(1)!</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">pd_sales_join</span> <span class="o">=</span> <span class="n">pd_sales_join</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">pd_employee</span><span class="p">[[</span><span class="s2">&quot;EmployeeID&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">]],</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;ReportsTo&#39;</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="p">)</span> <span class="c1">#(2)!</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="hll"><span class="n">pd_sales_join</span><span class="o">=</span><span class="n">pd_sales_join</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;EmployeeID_y&#39;</span><span class="p">])</span>
+</span></span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="hll"><span class="n">pd_sales_join</span><span class="o">=</span><span class="n">pd_sales_join</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span>
+</span></span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="hll">    <span class="p">{</span>
+</span></span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="hll">    <span class="s1">&#39;EmployeeID_x&#39;</span><span class="p">:</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span>
+</span></span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="hll">    <span class="s1">&#39;Name_x&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
+</span></span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="hll">    <span class="s1">&#39;Name_y&#39;</span><span class="p">:</span> <span class="s1">&#39;Manager Name&#39;</span>
+</span></span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="p">}</span> <span class="c1">#(3)!</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>Se realiza una <code>LEFT JOIN</code> entre el dataframe <code>pd_sales</code> y <code>pd_employee</code>, mediante la columna <code>EmployeeID</code>. Del <code>pd_employee</code> solo queremos las columnas:</p>
+<ul>
+<li><code>EmployeeID</code>: Columna clave ara hacer la unión.</li>
+<li><code>Name</code>: Nombre del trabajador.</li>
+<li><code>ReportsTo</code>: Nombre del supervisor.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ReportsTo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Ana Trujillo ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">September</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Southern ...</td>
+<td style="text-align: center;">Antonio Moreno ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">Leverling, Janet</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Northern ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">December</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;">Callahan, Laura</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;">Suyama, Michael</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">B's Beverages</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">August</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Para saber el nombre del supervisor (<code>ReportsTo</code>) debemos hacer otro <code>merge()</code> con el mismo dataframe <code>pd_employee</code> ya los valroes que están en dicha columna son los <code>id</code> que están en <code>EmployeeID</code>. Habrá unos valores <code>nulls</code> en <code>ReportsTo</code> lo que significa que no tiene un supervisor, es decir, él mismo es su propio supervisor.</p>
+<ul>
+<li><code class="language-py highlight"><span class="n">pd_employee</span><span class="p">[[</span><span class="s2">&quot;EmployeeID&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">]]</span></code>: Solo queremos estas dos columnas, la primera para realizar la relación y la segunda para obtener los nombres de los supervisores.</li>
+<li><code class="language-py highlight"><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;ReportsTo&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EmployeeID&#39;</span></code>: Como tienen distintos nombres las columnas claves, se indica el nombre de cada uno.</li>
+<li><code class="language-py highlight"><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span></code>: La unión es un <code>LEFT JOIN</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID_x</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name_x</th>
+<th style="text-align: center;">ReportsTo</th>
+<th style="text-align: center;">Employee_y</th>
+<th style="text-align: right;">Name_x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Ana Trujillo ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">September</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Southern ...</td>
+<td style="text-align: center;">Antonio Moreno ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">Leverling, Janet</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Northern ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">December</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;">Callahan, Laura</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: right;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;">Suyama, Michael</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">B's Beverages</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">August</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<ul>
+<li><code>.drop(columns=['EmployeeID_y'])</code>: Este bloque de código es para eliminar la columna que no interesa porque es un duplicado (<code>Employee_y</code>).</li>
+<li><code>.rename(columns={...})</code>: Renombramos las columnas <code class="language-py highlight"><span class="s1">&#39;EmployeeID_x&#39;</span> <span class="o">-&gt;</span> <span class="s1">&#39;EmployeeID&#39;</span></code>, <code class="language-py highlight"><span class="s1">&#39;Name_x&#39;</span> <span class="o">-&gt;</span> <span class="s1">&#39;Name&#39;</span></code> y <code class="language-py highlight"><span class="s1">&#39;Name_y&#39;</span> <span class="o">-&gt;</span> <span class="s1">&#39;Manager Name&#39;</span></code></li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ReportsTo</th>
+<th style="text-align: right;">Manager Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Ana Trujillo ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">September</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Southern ...</td>
+<td style="text-align: center;">Antonio Moreno ...</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">Leverling, Janet</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: right;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Northern ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">December</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;">Callahan, Laura</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: right;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;">Suyama, Michael</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western ...</td>
+<td style="text-align: center;">B's Beverages</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">August</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">5.0</td>
+<td style="text-align: right;">Buchanan, Steven</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">pl_sales_join</span> <span class="o">=</span> <span class="n">pl_sales</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pl_employee</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1">#(1)!</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">pl_sales_join</span> <span class="o">=</span> <span class="n">pl_sales_join</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;ReportsTo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int64</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="c1">#(2)!</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="hll"><span class="n">pl_sales_join</span><span class="o">=</span><span class="n">pl_sales_join</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+</span></span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="hll">    <span class="n">pl_employee</span><span class="p">[</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">],</span>
+</span></span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="hll">    <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;ReportsTo&#39;</span><span class="p">,</span> 
+</span></span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="hll">    <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span> 
+</span></span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="hll">    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
+</span></span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="hll">    <span class="p">)</span> 
+</span></span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="hll">
+</span></span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="hll"><span class="n">pl_sales_join</span><span class="o">=</span><span class="n">pl_sales_join</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Name_right&#39;</span><span class="p">:</span><span class="s1">&#39;Manager Name&#39;</span><span class="p">})</span> <span class="c1">#(3)!</span>
+</span></span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>Realizamos un <code>LEFT JOIN</code> entre los dataframe <code>pl_sales</code> y <code>pl_employee</code> a través de su columna en común <code>EmployeeID</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ReportsTo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>str</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Ana Trujillo ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;"><em>September</em></td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;"><em>King, Robert</em></td>
+<td style="text-align: center;">"5"</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">"Southern ..."</td>
+<td style="text-align: center;">"Antonio Moreno ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;"><em>November</em></td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;"><em>Leverling, Janet</em></td>
+<td style="text-align: center;">"2"</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">"Northern ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;"><em>December</em></td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;"><em>Callahan, Laura</em></td>
+<td style="text-align: center;">"2"</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;"><em>November</em></td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;"><em>Suyama, Michael</em></td>
+<td style="text-align: center;">"5"</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"B's Beverages"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;"><em>August</em></td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;"><em>King, Robert</em></td>
+<td style="text-align: center;">"5"</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Polars</strong> es muy estricto con el tipo de datos con que se trabajarán, por tal motivo, lo indican en cada columna (<code>i64, str, f64</code>), como se puede observar en la columna <code>ReportsTo</code> se trata de una columna de tipo <code>str</code>, esto se debe a que hay valores del estilo "null" que no se puede representar como <code>i64</code>. Por tal motivo, tenemos que convertir esa columna a uno de tipo <code>i64</code> para poder realizar un <code>JOIN</code> con la columna <code>EmployeeID</code>.</p>
+<ul>
+<li><code>.with_columns(</code>pl.col('ReportsTo')...)`: Permite trabajar con todos los elementos de la columna que se indique en su interior de forma simultánea.</li>
+<li><code>.cast(pl.Int64, strict=False)</code>: Convierte el tipo de dato de la columna <code>ReportsTo</code> a uno de tipo <code>i64</code>, mientras <code class="language-py highlight"><span class="n">strict</span><span class="o">=</span><span class="kc">False</span></code> permite convertir un valor que de lo normal arrojaría un error a uno de tipo <code>null</code>. Por defecto viene establecido como <code>strict=True</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ReportsTo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Ana Trujillo ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"September"</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">"King, Robert"</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">"Southern ..."</td>
+<td style="text-align: center;">"Antonio Moreno ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"November"</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">"Leverling, Janet"</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">"Northern ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"December"</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;">"Callahan, Laura"</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"November"</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;">"Suyama, Michael"</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"B's Beverages"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"August"</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">"King, Robert"</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Se realiza otra vez el <code>JOIN</code> para obtener los nombres de los <code>ReportsTo</code>, tomando solo dos columnas del dataframe <code>pl_employee</code> (<code class="language-py highlight"><span class="p">[</span><span class="s1">&#39;EmployeeID&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]</span></code>).</p>
+<p><code class="language-py highlight"><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Name_right&#39;</span><span class="p">:</span><span class="s1">&#39;Manager Name&#39;</span><span class="p">})</span></code>: El resultado de este <code>JOIN</code> nos arroja una columna llamado <code>Name_right</code>, este lo cambiamos a <code>Manager Name</code>.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total Quantity</th>
+<th style="text-align: center;">Total Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ReportsTo</th>
+<th style="text-align: right;">Manager Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: right;"><em>str</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Ana Trujillo ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"September"</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">"King, Robert"</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: right;">"Buchanan, Steven"</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">"Southern ..."</td>
+<td style="text-align: center;">"Antonio Moreno ..."</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"November"</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">"Leverling, Janet"</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">"Fuller, Andrew"</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">"Northern ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"December"</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899.0</td>
+<td style="text-align: center;">"Callahan, Laura"</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">"Fuller, Andrew"</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"Around the Horn"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"November"</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480.0</td>
+<td style="text-align: center;">"Suyama, Michael"</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: right;">"Buchanan, Steven"</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">"Western ..."</td>
+<td style="text-align: center;">"B's Beverages"</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"August"</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">"King, Robert"</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: right;">"Buchanan, Steven"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span>
+<span class="normal"><a href="#__codelineno-5-34">34</a></span>
+<span class="normal"><a href="#__codelineno-5-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">WITH</span><span class="w"> </span><span class="n">Sales_Total</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1996</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="k">UNION</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1997</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">UNION</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1998</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">),</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="hll"><span class="n">Sales_total_join</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span></span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="hll"><span class="k">SELECT</span><span class="w"> </span>
+</span></span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">EmployeeID</span><span class="p">,</span>
+</span></span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">RegionDescription</span><span class="p">,</span>
+</span></span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">CompanyName</span><span class="p">,</span>
+</span></span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Year</span><span class="p">,</span>
+</span></span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Month</span><span class="p">,</span>
+</span></span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Quantity</span><span class="p">,</span>
+</span></span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="hll"><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Sales</span><span class="p">,</span>
+</span></span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="hll"><span class="w">    </span><span class="n">E</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+</span></span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="hll"><span class="w">    </span><span class="n">IIF</span><span class="p">(</span><span class="n">E</span><span class="p">.</span><span class="n">ReportsTo</span><span class="o">=</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">E</span><span class="p">.</span><span class="n">ReportsTo</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ReportsTo</span>
+</span></span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="hll"><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_Total</span><span class="w"> </span><span class="n">S</span>
+</span></span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="hll"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">northwind_employees</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">EmployeeID</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">EmployeeID</span><span class="w"> </span><span class="c1">--(1)!</span>
+</span></span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="p">)</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="hll"><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">EmployeeID</span><span class="p">,</span>
+</span></span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">RegionDescription</span><span class="p">,</span>
+</span></span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">CompanyName</span><span class="p">,</span>
+</span></span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="k">Year</span><span class="p">,</span>
+</span></span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="k">Month</span><span class="p">,</span>
+</span></span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">Total_Quantity</span><span class="p">,</span>
+</span></span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">Total_Sales</span><span class="p">,</span>
+</span></span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="hll"><span class="w">    </span><span class="n">SJ</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+</span></span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="hll"><span class="w">    </span><span class="n">EE</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ManagerName</span>
+</span></span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="hll"><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_total_join</span><span class="w"> </span><span class="n">SJ</span>
+</span></span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="hll"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">northwind_employees</span><span class="w"> </span><span class="n">EE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">SJ</span><span class="p">.</span><span class="n">ReportsTo</span><span class="o">=</span><span class="n">EE</span><span class="p">.</span><span class="n">EmployeeID</span>
+</span></span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="hll"><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">EmployeeID</span><span class="p">,</span><span class="w"> </span><span class="k">Year</span><span class="w"> </span><span class="c1">--(2)!</span>
+</span></span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>Se realiza el <code class="language-sql highlight"><span class="k">JOIN</span></code> para saber el nombre de los trabajadores, a su vez convertimos en <code class="language-sql highlight"><span class="k">NULL</span></code> los valores <code>null</code> que aparecen en <code>ReportsTo</code>, los demás valores son convertidos en <code>INT</code>. Esto con el fin de luego hacer otro <code class="language-sql highlight"><span class="k">JOIN</span></code> con esta columna.</p>
+</li>
+<li>
+<p>Se realiza el <code class="language-sql highlight"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span></code> con la misma tabla de trabajadores (<code>northwind_employees</code>), mediante la columna <code>ReportsTo</code> y <code>EmployeeID</code>.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">EmployeeID</th>
+<th style="text-align: center;">RegionDescription</th>
+<th style="text-align: center;">CompanyName</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Month</th>
+<th style="text-align: center;">Total_Quantity</th>
+<th style="text-align: center;">Total_Sales</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">ManagerName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western</td>
+<td style="text-align: center;">Ana Trujillo Emparedados y helados</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">September</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">88.8</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Southern</td>
+<td style="text-align: center;">Antonio Moreno Taquería</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">403.2</td>
+<td style="text-align: center;">Leverling, Janet</td>
+<td style="text-align: center;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Northern</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">December</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">899</td>
+<td style="text-align: center;">Callahan, Laura</td>
+<td style="text-align: center;">Fuller, Andrew</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Western</td>
+<td style="text-align: center;">Around the Horn</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">November</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">480</td>
+<td style="text-align: center;">Suyama, Michael</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Western</td>
+<td style="text-align: center;">B's Beverages</td>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">August</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">479.4</td>
+<td style="text-align: center;">King, Robert</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Se desea saber las ventas por cada empleado respecto a un Región y una Compañía en cada año. ¿Qué ocurre con Buchanan, Steven</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="ejemplos-pandas_1" name="__tabbed_3" type="radio" /><input id="ejemplos-polars_1" name="__tabbed_3" type="radio" /><input id="ejemplos-sql-server_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="ejemplos-pandas_1">Pandas</label><label for="ejemplos-polars_1">Polars</label><label for="ejemplos-sql-server_1">SQL Server</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="hll"><span class="n">pd_orders</span><span class="o">=</span><span class="n">pd_orders</span><span class="p">[</span><span class="n">pd_orders</span><span class="p">[</span><span class="s1">&#39;# Orders&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="hll"><span class="n">pd_join</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+</span></span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="hll">    <span class="n">pd_sales_join</span><span class="p">,</span>
+</span></span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="hll">    <span class="n">pd_orders</span><span class="p">,</span>
+</span></span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="hll">    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CompanyName&#39;</span><span class="p">,</span> <span class="s1">&#39;RegionDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span>
+</span></span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="hll">    <span class="p">)</span> <span class="c1">#(1)!</span>
+</span></span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="hll"><span class="n">pd_group</span><span class="o">=</span><span class="n">pd_join</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">])[</span><span class="s1">&#39;Total Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="hll"><span class="n">pd_group</span><span class="o">=</span><span class="n">pd_group</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1">#(2)!</span>
+</span></span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="hll"><span class="n">pd_pivot</span><span class="o">=</span><span class="n">pd_group</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+</span></span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="hll">    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">],</span>
+</span></span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="hll">    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span>
+</span></span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="hll">    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Total Sales&#39;</span><span class="p">,</span>
+</span></span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="hll">    <span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="hll">    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1">#(3)!</span>
+</span></span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="n">pd_pivot</span><span class="p">[</span><span class="n">pd_pivot</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Buchanan, Steven&#39;</span><span class="p">]</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<ul>
+<li><code class="language-py highlight"><span class="n">pd_orders</span><span class="p">[</span><span class="s1">&#39;# Orders&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span></code>: Se filtra los órdenes mayor a 1, solo queremos los múltiples órdenes que solicitaron.</li>
+<li><code class="language-py highlight"><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code>: Se realiza un <code class="language-sql highlight"><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span></code> tomando como columnas clave a <code class="language-py highlight"><span class="p">[</span><span class="s1">&#39;CompanyName&#39;</span><span class="p">,</span> <span class="s1">&#39;RegionDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">]</span></code>.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code class="language-py highlight"><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">])[</span><span class="s1">&#39;Total Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></code>: Agrupamos los datos en 3 columnas (<code class="language-py highlight"><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]</span></code>) y una que serán los valores (<code class="language-py highlight"><span class="s1">&#39;Total Sales&#39;</span></code>).</li>
+<li><code class="language-py highlight"><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span></code>: Reseteamos el index para pasarlos a columnas.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code class="language-py highlight"><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code>: Tomamos como columnas fijas a <code>Year</code> y <code>Name</code>, la columna que se pivoteará es <code>Month</code> y redondearemos la suma sus valores de <code>Total Sales</code>si se repiten (<code class="language-py highlight"><span class="n">aggfunc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span></code>).</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">April</th>
+<th style="text-align: center;">August</th>
+<th style="text-align: center;">December</th>
+<th style="text-align: center;">February</th>
+<th style="text-align: center;">January</th>
+<th style="text-align: center;">July</th>
+<th style="text-align: center;">June</th>
+<th style="text-align: center;">March</th>
+<th style="text-align: center;">May</th>
+<th style="text-align: center;">November</th>
+<th style="text-align: center;">October</th>
+<th style="text-align: center;">September</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">103.2</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">1082.2</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">3901.08</td>
+<td style="text-align: center;">1393.20</td>
+<td style="text-align: center;">1420.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">1997</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">3585.57</td>
+<td style="text-align: center;">507.0</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">6475.4</td>
+<td style="text-align: center;">890.0</td>
+<td style="text-align: center;">1962.40</td>
+<td style="text-align: center;">4500.27</td>
+<td style="text-align: center;">484.26</td>
+<td style="text-align: center;">7581.32</td>
+<td style="text-align: center;">2024.83</td>
+</tr>
+<tr>
+<td style="text-align: center;">1998</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">3747.06</td>
+<td style="text-align: center;">11702.8</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">2402.03</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+<td style="text-align: center;">NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">pl_orders</span><span class="o">=</span><span class="n">pl_orders</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;# Orders&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">pl_join_orders</span><span class="o">=</span><span class="n">pl_sales_join</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">pl_orders</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CompanyName&#39;</span><span class="p">,</span> <span class="s1">&#39;RegionDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">pl_group_orders</span><span class="o">=</span><span class="n">pl_join_orders</span><span class="o">.</span><span class="n">group_by</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Total Sales&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s1">&#39;Total Sales Amount&#39;</span><span class="p">)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="hll"><span class="n">pl_group_orders</span><span class="o">=</span><span class="n">pl_group_orders</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Total Sales Amount&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1">#(1)!</span>
+</span></span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">pl_pivot_orders</span><span class="o">=</span><span class="n">pl_group_orders</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">],</span> 
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Total Sales Amount&#39;</span><span class="p">,</span> 
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="n">aggregate_function</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="p">)</span>  <span class="c1">#(3)!</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="n">pl_pivot_orders</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;Buchanan, Steven&#39;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>Esta línea lo utilizamos para poder redondear los valores a dos decimales.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">April</th>
+<th style="text-align: center;">August</th>
+<th style="text-align: center;">December</th>
+<th style="text-align: center;">February</th>
+<th style="text-align: center;">January</th>
+<th style="text-align: center;">July</th>
+<th style="text-align: center;">June</th>
+<th style="text-align: center;">March</th>
+<th style="text-align: center;">May</th>
+<th style="text-align: center;">November</th>
+<th style="text-align: center;">October</th>
+<th style="text-align: center;">September</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>i64</em></td>
+<td style="text-align: center;"><em>str</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+<td style="text-align: center;"><em>f64</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">"Buchanan, Steven"</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">103.2</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">1082.2</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">3901.08</td>
+<td style="text-align: center;">1393.20</td>
+<td style="text-align: center;">1420.00</td>
+</tr>
+<tr>
+<td style="text-align: center;">1997</td>
+<td style="text-align: center;">"Buchanan, Steven"</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">3585.57</td>
+<td style="text-align: center;">507.0</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">6475.4</td>
+<td style="text-align: center;">890.0</td>
+<td style="text-align: center;">1962.40</td>
+<td style="text-align: center;">4500.27</td>
+<td style="text-align: center;">484.26</td>
+<td style="text-align: center;">7581.32</td>
+<td style="text-align: center;">2024.83</td>
+</tr>
+<tr>
+<td style="text-align: center;">1998</td>
+<td style="text-align: center;">"Buchanan, Steven"</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">3747.06</td>
+<td style="text-align: center;">11702.8</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">2402.03</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+<td style="text-align: center;">null</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span>
+<span class="normal"><a href="#__codelineno-8-35">35</a></span>
+<span class="normal"><a href="#__codelineno-8-36">36</a></span>
+<span class="normal"><a href="#__codelineno-8-37">37</a></span>
+<span class="normal"><a href="#__codelineno-8-38">38</a></span>
+<span class="normal"><a href="#__codelineno-8-39">39</a></span>
+<span class="normal"><a href="#__codelineno-8-40">40</a></span>
+<span class="normal"><a href="#__codelineno-8-41">41</a></span>
+<span class="normal"><a href="#__codelineno-8-42">42</a></span>
+<span class="normal"><a href="#__codelineno-8-43">43</a></span>
+<span class="normal"><a href="#__codelineno-8-44">44</a></span>
+<span class="normal"><a href="#__codelineno-8-45">45</a></span>
+<span class="normal"><a href="#__codelineno-8-46">46</a></span>
+<span class="normal"><a href="#__codelineno-8-47">47</a></span>
+<span class="normal"><a href="#__codelineno-8-48">48</a></span>
+<span class="normal"><a href="#__codelineno-8-49">49</a></span>
+<span class="normal"><a href="#__codelineno-8-50">50</a></span>
+<span class="normal"><a href="#__codelineno-8-51">51</a></span>
+<span class="normal"><a href="#__codelineno-8-52">52</a></span>
+<span class="normal"><a href="#__codelineno-8-53">53</a></span>
+<span class="normal"><a href="#__codelineno-8-54">54</a></span>
+<span class="normal"><a href="#__codelineno-8-55">55</a></span>
+<span class="normal"><a href="#__codelineno-8-56">56</a></span>
+<span class="normal"><a href="#__codelineno-8-57">57</a></span>
+<span class="normal"><a href="#__codelineno-8-58">58</a></span>
+<span class="normal"><a href="#__codelineno-8-59">59</a></span>
+<span class="normal"><a href="#__codelineno-8-60">60</a></span>
+<span class="normal"><a href="#__codelineno-8-61">61</a></span>
+<span class="normal"><a href="#__codelineno-8-62">62</a></span>
+<span class="normal"><a href="#__codelineno-8-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">WITH</span><span class="w"> </span><span class="n">Sales_Total</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">EmployeeID</span><span class="p">,</span><span class="w"> </span><span class="n">RegionDescription</span><span class="p">,</span><span class="w"> </span><span class="n">CompanyName</span><span class="p">,</span><span class="w"> </span><span class="k">Year</span><span class="p">,</span><span class="w"> </span><span class="k">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Total_Quantity</span><span class="p">,</span><span class="w"> </span><span class="n">Total_Sales</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1996</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">UNION</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1997</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">UNION</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_1998</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="p">),</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">Sales_total_join</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">EmployeeID</span><span class="p">,</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">RegionDescription</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">CompanyName</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Year</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Month</span><span class="p">,</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Quantity</span><span class="p">,</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Sales</span><span class="p">,</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">    </span><span class="n">E</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">    </span><span class="n">EE</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ManagerName</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_Total</span><span class="w"> </span><span class="n">S</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="hll"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">northwind_employees</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">E</span><span class="p">.</span><span class="n">EmployeeID</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">EmployeeID</span>
+</span></span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="hll"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">northwind_employees</span><span class="w"> </span><span class="n">EE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span>
+</span></span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="hll"><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="k">NULLIF</span><span class="p">(</span><span class="n">E</span><span class="p">.</span><span class="n">ReportsTo</span><span class="p">,</span><span class="s1">&#39;null&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EE</span><span class="p">.</span><span class="n">EmployeeID</span><span class="w"> </span><span class="c1">--(1)!</span>
+</span></span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="p">),</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="n">Sales_orders_region</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="k">SELECT</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">EmployeeID</span><span class="p">,</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">RegionDescription</span><span class="p">,</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">CompanyName</span><span class="p">,</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Year</span><span class="p">,</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="k">Month</span><span class="p">,</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Quantity</span><span class="p">,</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Total_Sales</span><span class="p">,</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34"></a><span class="w">    </span><span class="n">S</span><span class="p">.</span><span class="n">ManagerName</span><span class="p">,</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35"></a><span class="w">    </span><span class="n">O</span><span class="p">.</span><span class="n">Orders</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36"></a><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_total_join</span><span class="w"> </span><span class="n">S</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37"></a><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Orders_per_region</span><span class="w"> </span><span class="n">O</span><span class="w"> </span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38"></a><span class="k">ON</span><span class="w"> </span><span class="n">O</span><span class="p">.</span><span class="n">RegionDescription</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">RegionDescription</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39"></a><span class="k">AND</span><span class="w"> </span><span class="n">O</span><span class="p">.</span><span class="n">CompanyName</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">CompanyName</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40"></a><span class="k">AND</span><span class="w"> </span><span class="n">O</span><span class="p">.</span><span class="k">Year</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="k">Year</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41"></a><span class="hll"><span class="k">WHERE</span><span class="w"> </span><span class="n">O</span><span class="p">.</span><span class="n">Orders</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="c1">--(2)!</span>
+</span></span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42"></a><span class="p">),</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43"></a><span class="n">Sales_group</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45"></a><span class="w">    </span><span class="k">Year</span><span class="p">,</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46"></a><span class="w">    </span><span class="k">Month</span><span class="p">,</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47"></a><span class="w">    </span><span class="n">Name</span><span class="p">,</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48"></a><span class="hll"><span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">Total_Sales</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_Sales_Amount</span><span class="w"> </span><span class="c1">--(3)!</span>
+</span></span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49"></a><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_orders_region</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">Year</span><span class="p">,</span><span class="w"> </span><span class="k">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Name</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51"></a><span class="p">)</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52"></a><span class="hll"><span class="k">SELECT</span>
+</span></span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53"></a><span class="hll"><span class="w">    </span><span class="k">Year</span><span class="p">,</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span>
+</span></span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54"></a><span class="hll"><span class="w">    </span><span class="p">[</span><span class="n">January</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">February</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">March</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">April</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">May</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Juny</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">July</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">August</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">September</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">October</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">November</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">December</span><span class="p">]</span>
+</span></span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55"></a><span class="hll"><span class="k">FROM</span><span class="w"> </span>
+</span></span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56"></a><span class="hll"><span class="p">(</span>
+</span></span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57"></a><span class="hll"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="k">Year</span><span class="p">,</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="k">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Total_Sales_Amount</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Sales_group</span>
+</span></span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58"></a><span class="hll"><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_intermedia</span>
+</span></span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59"></a><span class="hll"><span class="n">PIVOT</span>
+</span></span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60"></a><span class="hll"><span class="p">(</span>
+</span></span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61"></a><span class="hll"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">Total_Sales_Amount</span><span class="p">)</span>
+</span></span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62"></a><span class="hll"><span class="w">    </span><span class="k">FOR</span><span class="w"> </span><span class="k">Month</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">([</span><span class="n">January</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">February</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">March</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">April</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">May</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">Juny</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">July</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">August</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">September</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">October</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">November</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">December</span><span class="p">])</span>
+</span></span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63"></a><span class="hll"><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">tabla_pivot</span><span class="w"> </span><span class="c1">--(4)!</span>
+</span></span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<ul>
+<li>Realizamos doble <code class="language-sql highlight"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span></code>, uno para obtener los nombres de los trabajadores y el otro para tener el nombre de los supervisores.</li>
+<li>Para este último <code class="language-sql highlight"><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span></code>, primero se tiene que cambiar los valores 'null' por <code class="language-sql highlight"><span class="k">NULL</span></code> y lo demás a <code class="language-sql highlight"><span class="nb">INT</span></code>.</li>
+</ul>
+</li>
+<li>El <code class="language-sql highlight"><span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span></code> con la tabla <code>Orders_per_region</code> se filtra solo para tener a los que tienen un órden mayor a 1.</li>
+<li><code class="language-sql highlight"><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">Total_Sales</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span></code>Redondeamos los valores a dos decimales.</li>
+<li>Realizamos el pivot tomando:<ul>
+<li><code class="language-sql highlight"><span class="k">Year</span><span class="p">,</span><span class="w"> </span><span class="n">Name</span></code>: Columnas fijas</li>
+<li><code class="language-sql highlight"><span class="p">[</span><span class="n">January</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">February</span><span class="p">],</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="p">[</span><span class="n">December</span><span class="p">]</span></code>: Columna Pivot</li>
+<li><code class="language-sql highlight"><span class="k">SUM</span><span class="p">(</span><span class="n">Total_Sales_Amount</span><span class="p">)</span></code>:  Values</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: center;">January</th>
+<th style="text-align: center;">February</th>
+<th style="text-align: center;">March</th>
+<th style="text-align: center;">April</th>
+<th style="text-align: center;">May</th>
+<th style="text-align: center;">Juny</th>
+<th style="text-align: center;">July</th>
+<th style="text-align: center;">August</th>
+<th style="text-align: center;">September</th>
+<th style="text-align: center;">October</th>
+<th style="text-align: center;">November</th>
+<th style="text-align: center;">December</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1996</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">1082.2</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">1420</td>
+<td style="text-align: center;">1393.2</td>
+<td style="text-align: center;">3901.08</td>
+<td style="text-align: center;">103.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">1997</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">1962.4</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">4500.27</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">6475.4</td>
+<td style="text-align: center;">3585.57</td>
+<td style="text-align: center;">2024.83</td>
+<td style="text-align: center;">7581.32</td>
+<td style="text-align: center;">484.26</td>
+<td style="text-align: center;">507</td>
+</tr>
+<tr>
+<td style="text-align: center;">1998</td>
+<td style="text-align: center;">Buchanan, Steven</td>
+<td style="text-align: center;">11702.8</td>
+<td style="text-align: center;">3747.06</td>
+<td style="text-align: center;">2402.03</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+<td style="text-align: center;">NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1.%20Appending/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Appending">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Appending
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../3.%20Custom%20Columns/1.%20Ranking/" class="md-footer__link md-footer__link--next" aria-label="Next: 1. Ranking">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                1. Ranking
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Daryl CS
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://linkedin.com/in/darylics" target="_blank" rel="noopener" title="squidfunk on Mastodon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.footnote.tooltips"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
